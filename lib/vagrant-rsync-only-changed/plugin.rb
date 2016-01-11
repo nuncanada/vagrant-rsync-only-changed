@@ -14,8 +14,6 @@ module VagrantPlugins
 
       # This initializes the internationalization strings.
       def self.setup_i18n
-        I18n.load_path << File.expand_path("locales/en.yml", RsyncOnlyChanged.source_root)
-        I18n.reload!
       end
 
       action_hook "startup-rsync" do |hook|
