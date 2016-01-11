@@ -1,8 +1,8 @@
 # This file is required because Vagrant's plugin system expects
 # an eponymous ruby file matching the rubygem.
 #
-# So this gem is called 'vagrant-gatling-rsync' and thus vagrant tries
-# to require "vagrant-gatling-rsync"
+# So this gem is called 'vagrant-rsync-only-changed' and thus vagrant tries
+# to require "vagrant-rsync-only-changed"
 
 require "vagrant-rsync-only-changed/plugin"
 
