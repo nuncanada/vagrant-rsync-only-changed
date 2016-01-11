@@ -4,7 +4,7 @@ module VagrantPlugins
   module RsyncOnlyChanged
     module Errors
       class VagrantRsyncOnlyChangedError < Vagrant::Errors::VagrantError
-        error_namespace("vagrant_gatling_rsync.errors")
+        error_namespace("vagrant_rsync_only_changed.errors")
       end
 
       class OSNotSupportedError < VagrantRsyncOnlyChangedError

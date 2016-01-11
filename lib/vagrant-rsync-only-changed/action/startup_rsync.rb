@@ -20,7 +20,7 @@ module VagrantPlugins
         # Ensure only one at_exit block is registered.
         return unless @rsync_only_changed_startup_registered == false
 
-        return unless env[:machine].config.gatling.rsync_on_startup == true
+        return unless env[:machine].config.rsync_only_changed.rsync_on_startup == true
 
         at_exit do
           unless $!.is_a?(SystemExit)
@@ -36,7 +36,7 @@ module VagrantPlugins
 
           # Don't run if there are no rsynced folders.
           unless @rsync_folder_count == 0 then
-            env[:ui].info I18n.t("vagrant_rsync-only-changed.startup_sync")
+            env[:ui].info I18n.t("vagrant_rsync_only_changed.startup_sync")
             env[:machine].env.cli("rsync-auto-only-changed")
           end
         end
