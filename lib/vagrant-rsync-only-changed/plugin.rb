@@ -1,7 +1,7 @@
 begin
   require "vagrant"
 rescue LoadError
-  raise "The Vagrant gatling rsync plugin must be run within Vagrant."
+  raise "The Vagrant rsync-only-changed plugin must be run within Vagrant."
 end
 
 module VagrantPlugins
@@ -14,6 +14,8 @@ module VagrantPlugins
 
       # This initializes the internationalization strings.
       def self.setup_i18n
+	    I18n.load_path << File.expand_path("locales/en.yml", RsynOnlyChanged.source_root)
+        I18n.reload!
       end
 
       action_hook "startup-rsync" do |hook|
@@ -24,12 +26,11 @@ module VagrantPlugins
 
       command "rsync-auto-only-changed" do
         setup_i18n
-
         require_relative "command/rsync_auto"
         RsyncOnlyChangedAuto
       end
 
-      config "gatling" do
+      config "rsync_only_changed" do
         require_relative "config"
         Config
       end
