@@ -1,8 +1,8 @@
 en:
   vagrant_rsync_only_changed:
     startup_sync: |-
-      vagrant-rsync-only-changed is starting the sync engine because you have at least one rsync folder. To disable this behavior, set `config.gatling.rsync_on_startup = false` in your Vagrantfile.
+      vagrant-rsync-only-changed is starting the sync engine because you have at least one rsync folder. To disable this behavior, set `config.rsync_only_changed.rsync_on_startup = false` in your Vagrantfile.
     errors:
-      vagrant_15_required: |-
-        The vagrant-gatling-rsync plugin requires Vagrant 1.5.1 or newer to function.
+      vagrant_17_required: |-
+        The vagrant-rsync-only-changed plugin requires Vagrant 1.7.3 or newer to function.
 
