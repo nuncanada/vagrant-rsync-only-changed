@@ -11,7 +11,7 @@ module VagrantPlugins
 
       def finalize!
         if @rsync_on_startup == UNSET_VALUE
-          @rsync_on_startup = true
+          @rsync_on_startup = false
         else
           @rsync_on_startup = !!@rsync_on_startup
         end
