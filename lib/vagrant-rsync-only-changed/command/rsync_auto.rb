@@ -187,7 +187,10 @@ module VagrantPlugins
 
 		  ssh_info = opts[:machine].ssh_info
 		  begin
+			start = Time.now
 			VagrantPlugins::RsyncOnlyChanged::RsyncHelper.rsync_single(opts[:machine], ssh_info, opts[:opts], changed_paths)
+			finish = Time.now
+			@logger.info("Time spent in rsync: #{finish-start} (in seconds)")
 		  rescue Vagrant::Errors::MachineGuestNotReady
 			# Error communicating to the machine, probably a reload or
 			# halt is happening. Just notify the user but don't fail out.
