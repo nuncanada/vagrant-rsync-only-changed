@@ -140,6 +140,7 @@ module VagrantPlugins
             end
           end
           
+          args << "--delete-missing-args"
           args << "--files-from=" + adapt_filepath_for_rsync(root_path, changed_list_file)
         end
 
