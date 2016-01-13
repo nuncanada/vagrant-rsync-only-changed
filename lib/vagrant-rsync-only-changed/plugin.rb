@@ -18,6 +18,25 @@ module VagrantPlugins
         I18n.reload!
       end
 
+      def self.usable(raise_error=false)
+        
+       # Build up the actual command to execute
+        command = [
+          "rsync",
+          "--version"
+        ].flatten
+
+        r = Vagrant::Util::Subprocess.execute(*(command))
+
+		version_re = /version (\d.\d.\d)/  
+		m = version_re.match( r.stdout )  
+
+        return true if Gem::Version.new(m[1]) >= Gem::Version.new('3.1.0')
+        return false if !raise_error
+        require_relative "errors"
+        raise Errors::Rsync310RequiredError
+      end
+
       action_hook "startup-rsync" do |hook|
         setup_i18n
         require_relative "action/startup_rsync"
@@ -25,6 +44,8 @@ module VagrantPlugins
       end
 
       command "rsync-auto-only-changed" do
+	    is_usable = usable(raise_error=true)
+		puts is_usable
         setup_i18n
         require_relative "command/rsync_auto"
         RsyncOnlyChangedAuto

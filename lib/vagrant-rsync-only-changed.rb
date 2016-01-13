@@ -12,7 +12,7 @@ module VagrantPlugins
   module RsyncOnlyChanged
     lib_path = Pathname.new(File.expand_path("../vagrant-rsync-only-changed", __FILE__))
     autoload :Errors, lib_path.join("errors")
-    autoload :Errors, lib_path.join("helper")
+    autoload :Helper, lib_path.join("helper")
 
     # This returns the path to the source of this plugin.
     #

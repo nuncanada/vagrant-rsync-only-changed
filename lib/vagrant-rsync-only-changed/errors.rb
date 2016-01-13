@@ -14,6 +14,10 @@ module VagrantPlugins
       class Vagrant15RequiredError < VagrantRsyncOnlyChangedError
         error_key(:vagrant_15_required)
       end
+
+      class Rsync310RequiredError < VagrantRsyncOnlyChangedError
+        error_key(:rsync_310_required)
+      end
     end
   end
 end

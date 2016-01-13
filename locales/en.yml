@@ -5,4 +5,6 @@ en:
     errors:
       vagrant_17_required: |-
         The vagrant-rsync-only-changed plugin requires Vagrant 1.7.3 or newer to function.
+      rsync_310_required: |-
+        For the rsync-auto-changed-only command to work, it is necessary to have rsync with version at least 3.1.0
 
