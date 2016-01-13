@@ -45,7 +45,6 @@ module VagrantPlugins
 
       command "rsync-auto-only-changed" do
 	    is_usable = usable(raise_error=true)
-		puts is_usable
         setup_i18n
         require_relative "command/rsync_auto"
         RsyncOnlyChangedAuto
