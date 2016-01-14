@@ -12,7 +12,11 @@ vagrant plugin install vagrant-rsync-only-changed
 
 ## Usage
 
-TODO: Write usage instructions here
+vagrant rsync-auto-only-changed
+
+You may trigger it automatically on vagrant up by setting the following configuration:
+
+config.vm.rsync_only_changed.rsync_on_startup = true
 
 ## Development
 
@@ -22,5 +26,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vagrant-rsync-only-changed.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nuncanada/vagrant-rsync-only-changed.
 
