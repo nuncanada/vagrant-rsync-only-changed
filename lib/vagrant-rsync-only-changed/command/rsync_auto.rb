@@ -29,8 +29,8 @@ module VagrantPlugins
         "syncs rsync synced folders automatically when files change"
       end
 
-	    def execute
-	      @logger = Log4r::Logger.new("vagrant::commands::rsync-auto-only-changed")
+      def execute
+        @logger = Log4r::Logger.new("vagrant::commands::rsync-auto-only-changed")
 
         options = {}
         opts = OptionParser.new do |o|
