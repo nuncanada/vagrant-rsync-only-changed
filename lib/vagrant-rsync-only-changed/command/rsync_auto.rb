@@ -42,17 +42,17 @@ module VagrantPlugins
           o.on("--[no-]poll", "Force polling filesystem (slow)") do |poll|
             options[:poll] = poll
           end
-	      end
+        end
 
-	      # Parse the options and return if we don't have any target.
-	      argv = parse_options(opts)
-	      return if !argv
+        # Parse the options and return if we don't have any target.
+	argv = parse_options(opts)
+	return if !argv
 
-	      # Build up the paths that we need to listen to.
+	# Build up the paths that we need to listen to.
         paths = {}
         ignores = []
-	      with_target_vms(argv) do |machine|
-		      if machine.provider.capability?(:proxy_machine)		  
+        with_target_vms(argv) do |machine|
+          if machine.provider.capability?(:proxy_machine)		 
             proxy = machine.provider.capability(:proxy_machine)		  
             if proxy
               machine.ui.warn(I18n.t(
